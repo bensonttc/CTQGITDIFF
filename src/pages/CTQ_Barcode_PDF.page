@@ -1,0 +1,18 @@
+<apex:page cache="false" applyBodyTag="false" standardcontroller="Batch__c" extensions="CTQ_BarcodeController" recordSetVar="batches" renderAs="pdf"
+sidebar="false" showHeader="false" title="CTQ Barcode">
+    <apex:variable value="0" var="index"/>
+    <apex:repeat value="{!thisPDFConstructs}" var="thisBarCodeDetail">
+      <apex:outputPanel rendered="{!IF(VALUE(index) > 0, true, false)}">
+        <p style="page-break-after: always;">&nbsp;</p>
+      </apex:outputPanel>    
+      <h3>Scan box: {!thisBarCodeDetail.batchRecord.Scan_Box__r.Name}</h3>
+      <h3>Batch box: {!thisBarCodeDetail.batchRecord.Name}</h3>
+      <!-- End Default Content REMOVE THIS -->
+      <br/> 
+      <apex:image id="theBarcode" value="{!thisBarCodeDetail.barcodeURL}" alt="This is the barcode"/>
+      <apex:pageBlock rendered="{!NOT(thisBarCodeDetail.success)}">
+        <h1>{!thisPDFConstruct.errorMessage}</h1>
+      </apex:pageBlock>
+      <apex:variable var="index" value="{!VALUE(index) + 1}"/>
+    </apex:repeat>
+</apex:page>

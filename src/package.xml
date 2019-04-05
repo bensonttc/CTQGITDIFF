@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>CTQ_BarcodeController</members>
+        <members>CTQ_BarcodeControllerTest</members>
+        <members>TestDataFactory</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>CTQ_Barcode_PDF</members>
+        <name>ApexPage</name>
+    </types>
+    <version>43.0</version>
+</Package>
